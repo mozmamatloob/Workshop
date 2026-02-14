@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Development EDA Story</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <section class="story-section active" id="step1">
+            <div class="content">
+                <span class="step-tag">Step 01: Data Acquisition</span>
+                <h1>World Development Indicators Analysis</h1>
+                <p>This project utilizes a comprehensive dataset from the <b>World Bank</b>, spanning from 1990 to 2020. It includes over 30 key indicators such as GDP, life expectancy, and internet penetration across all global regions.</p>
+                <div class="data-box">
+                    <h3>Project Roadmap:</h3>
+                    <ul>
+                        <li><b>Data Cleaning:</b> Handling missing values via group-wise mean imputation.</li>
+                        <li><b>Feature Understanding:</b> Analyzing distributions and relationships.</li>
+                        <li><b>Trend Identification:</b> Observing global shifts in technology and wealth.</li>
+                    </ul>
+                </div>
+                <button class="next-btn" onclick="nextStep(2)">Begin EDA ➔</button>
+            </div>
+        </section>
+
+        <section class="story-section" id="step2">
+            <div class="content">
+                <span class="step-tag">Step 02: Distribution</span>
+                <h1>GDP Per Capita Distribution</h1>
+                <div class="chart-container"><canvas id="histChart"></canvas></div>
+                <div class="description">
+                    <p><b>Analysis:</b> As seen in our initial outlier check, the data is highly right-skewed. Most nations cluster at the lower end of the income spectrum, with a few high-income outliers significantly extending the tail.</p>
+                </div>
+                <button class="next-btn" onclick="nextStep(3)">View Global Trends ➔</button>
+            </div>
+        </section>
+
+        <section class="story-section" id="step3">
+            <div class="content">
+                <span class="step-tag">Step 03: Time-Series Trends</span>
+                <h1>Global GDP vs. Internet Access</h1>
+                <div class="chart-container"><canvas id="lineChartDual"></canvas></div>
+                <div class="description">
+                    <p><b>Analysis:</b> This dual-axis plot illustrates the simultaneous rise of average global wealth and digital connectivity. Notice the sharp inflection point in internet adoption after the year 2000.</p>
+                </div>
+                <button class="next-btn" onclick="nextStep(4)">Correlation Matrix ➔</button>
+            </div>
+        </section>
+
+        <section class="story-section" id="step4">
+            <div class="content">
+                <span class="step-tag">Step 04: Feature Relationships</span>
+                <h1>Correlation Heatmap</h1>
+                <div class="heatmap-wrapper" id="heatmapGrid"></div>
+                <div class="description">
+                    <p><b>Analysis:</b> Based on our heatmap, we identified strong positive correlations between <b>Electricity Access</b> and <b>Life Expectancy</b> (0.84), while <b>Mortality Rates</b> show a strong negative correlation with wealth indicators.</p>
+                </div>
+                <button class="next-btn" onclick="nextStep(5)">Wealth vs. Tech ➔</button>
+            </div>
+        </section>
+
+        <section class="story-section" id="step5">
+            <div class="content">
+                <span class="step-tag">Step 05: Bivariate Analysis</span>
+                <h1>Internet Access vs. GDP Per Capita</h1>
+                <div class="chart-container"><canvas id="scatterChart"></canvas></div>
+                <div class="description">
+                    <p><b>Analysis:</b> This scatter plot confirms that higher internet penetration is a strong predictor of economic prosperity. Each dot represents a country, color-coded by year to show the upward progression over time.</p>
+                </div>
+                <button class="next-btn" onclick="nextStep(6)">Health & Income ➔</button>
+            </div>
+        </section>
+
+        <section class="story-section" id="step6">
+            <div class="content">
+                <span class="step-tag">Step 06: Categorical Analysis</span>
+                <h1>Life Expectancy by Income Group</h1>
+                <div class="chart-container"><canvas id="barChart"></canvas></div>
+                <div class="description">
+                    <p><b>Analysis:</b> Categorizing nations into four income brackets reveals a stark disparity. High-income nations boast an average life expectancy exceeding 80 years, while low-income regions remain significantly lower.</p>
+                </div>
+                <button class="next-btn" onclick="nextStep(1)">Restart Story ↺</button>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
